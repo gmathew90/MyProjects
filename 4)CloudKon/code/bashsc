@@ -1,0 +1,5 @@
+
+cat worker | \
+while read CMD; do
+    scp -i pa3.pem wrkr.py ubuntu@$CMD:~
+done	

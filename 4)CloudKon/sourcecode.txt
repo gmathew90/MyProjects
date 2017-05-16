@@ -1,0 +1,279 @@
+import random
+import sys
+import os
+f =open('wrkr','w') #opens the file wrkr for writing
+n=int(sys.argv[1])  #takes in the no of workers as command line
+for m in range(160*n):#loop to generate the links
+   f.write("http://dummyimage.com/1920x1680/"+str(m*100)+"/img"+str(m)+".jpg\n")
+
+import boto.sqs
+import sys
+import os
+import random
+
+
+fnm=sys.argv[2] #takes the file name as command line arguement
+qnm=sys.argv[1] #takes the queue name as command line arguement
+k_id='AKIAIJ5DFTHQDIMRH7HA'
+key='SPxiQ0LCQJQBVxHm8PtSA5zHwGqqklSyGA89WqSu'
+c= boto.sqs.connect_to_region('us-west-2',aws_access_key_id=k_id,aws_secret_access_key=key)
+q = c.create_queue(qnm)    #establishes connection to the queue
+from boto.sqs.message import Message
+d=1
+with open(fnm) as f :
+    for l in f:
+       m=Message()
+       m.set_body(str(d)+" "+l) #makes a message with instruction
+       print(str(d)+" "+l)
+       print q.write(m)      #writes the message to the queue
+       d=d+1
+import os
+import boto.dynamodb
+import time
+import sys
+from boto.sqs.message import Message
+qnm=sys.argv[1]   #inputs the instruction queue name 
+tnm=sys.argv[2]   #inputs the dynamodb name
+qnm1=sys.argv[3]  #inputs the response queue name
+k_id='AKIAIJ5DFTHQDIMRH7HA'
+key='SPxiQ0LCQJQBVxHm8PtSA5zHwGqqklSyGA89WqSu'
+c= boto.sqs.connect_to_region('us-west-2',aws_access_key_id=k_id,aws_secret_access_key=key)
+q = c.create_queue(qnm)  #connection to the queue is established
+q1=c.create_queue(qnm1) #connection to the queue is established
+st=time.time()           #start time is noted
+m=q.get_messages(1)     #message is fetched
+c1=boto.boto.dynamodb.connect_to_region('us-west-2',aws_access_key_id=k_id,aws_secret_access_key=key)
+t=c1.get_table(tnm)     #connection to the db is established
+data={'value':'Done'}   #data is set
+while(len(m)!=0):       #checking whether the queue is empty
+ 
+
+    i=(m[0].get_body())
+    k=i.split()          #the message is split to extract id
+    #print (i)
+    try:
+        t.get_item(hash_key=k[0])   #trying to fetch value from db
+    except boto.dynamodb.exceptions.DynamoDBKeyNotFoundError:
+        #exception shows that data not in db
+        item = t.new_item(hash_key =k[0],attrs=data)
+        #data is put into db
+        m1=Message() 
+        m1.set_body(k[0]+" "+"T")
+        q1.write(m1) #data put to response queue
+        item.put()
+        q.delete_message(m[0])
+        #delete message from instruction queue
+        os.system("wget "+(k[1]))  #the image is downloaded
+
+    m=q.get_messages(1)
+os.system("ffmpeg -f image2 -i img%d.jpg a.mpg")
+#the video is made
+en=time.time()
+print(en-st) #The time taken is printed
+
+import boto.sqs
+import sys
+import os
+import boto.dynamodb
+import time
+qnm=sys.argv[1]
+
+k_id='AKIAIJ5DFTHQDIMRH7HA'
+key='SPxiQ0LCQJQBVxHm8PtSA5zHwGqqklSyGA89WqSu'
+c= boto.sqs.connect_to_region('us-west-2',aws_access_key_id=k_id,aws_secret_access_key=key)
+q = c.create_queue(qnm) #connection to the queue is established
+cntr=0;
+m=q.get_messages(1)
+while(len(m)!=0): #checking whether the queue is empty
+   cntr=cntr+1  #counter is incremented 
+   q.delete_message(m[0]) #message is deleted
+   m=q.get_messages(1) 
+print(str(cntr)+' messages with success status found in response queue') 
+
+import boto.sqs
+import sys
+import os
+import random
+
+
+fnm=sys.argv[2]
+qnm=sys.argv[1]
+k_id='AKIAIJ5DFTHQDIMRH7HA'
+key='SPxiQ0LCQJQBVxHm8PtSA5zHwGqqklSyGA89WqSu'
+c= boto.sqs.connect_to_region('us-west-2',aws_access_key_id=k_id,aws_secret_access_key=key)
+q = c.create_queue(qnm) #connection to the queue is established
+from boto.sqs.message import Message
+d=1
+with open(fnm) as f :
+    for l in f: #instructions are fetched from file
+       m=Message()
+       m.set_body(str(d)+" "+l)
+       print(str(d)+" "+l) #the instructions are combined with id
+       print q.write(m)   #this is written into the queue
+       d=d+1
+
+import sys
+f =open('wrkr','w')
+n=int(sys.argv[1]) #the number of instructions is fetched
+st=sys.argv[2]+' '#sys.argv[3] #sleep instruction is fetched
+for m in range(n):
+   f.write(st+'\n') #written into the file
+f.close()
+           
+import time
+import threading
+import sys
+
+th=sys.argv[1] #number of threads is read
+def tim(i,nm): #function that executes the instruction
+    print (nm+ ' Thread')
+    print ('sleep '+str(i))
+    time.sleep(float(i)/1000.00)
+
+    
+
+q=[]
+r=[]
+i=0
+with open ('wrkr') as f: #instructions are read into a list
+    for l in f:
+        q.append(l.strip())
+st=time.time()  #start time is noted
+while(i<len(q)): #looping till the end of list
+    dic={}
+    for n in range(int(th)):
+       if(i<len(q)):
+          #pool of threads is created
+          m=q[i]
+          dic[n] = threading.Thread(target=tim, args=(int(m.split()[1]),str(n),))
+          dic[n].start() #all the threads are started
+          dic[n].join()
+          i=i+1
+          r.append(m) #instructions put into second list
+en=time.time()
+print ("Time Taken: "+str(en-st)) #displaying the time taken
+print (str(len(r))+" messages with success status found in response Queue")
+
+import boto.ec2
+import boto.sqs
+import sys
+import boto.dynamodb 
+def strt_ec2(n,i,k): #function to start instances
+    c= boto.ec2.connect_to_region('us-west-2',aws_access_key_id=i,aws_secret_access_key=k)
+    r = c.get_all_reservations()
+    lis=[]
+    f =open('worker','w') #creating a list of running instances
+    for m in r:
+        lis.append(m.instances[0].id)
+    for m in range(n):
+        c.run_instances('ami-9abea4fb',key_name='pa3',instance_type='t2.micro',security_groups=['launch-wizard-1'])
+    r = c.get_all_reservations()
+    lis2=[]
+    lis1=[]
+    for m in r:
+       lis1.append(m.instances[0].id)
+       lis2.append(m.instances[0].public_dns_name)
+       print(m.instances[0].public_dns_name)
+        
+       
+
+    k=len(lis1)-len(lis) #finding the number of instances created
+    print ("%d instances started"%k)
+    for m in lis2:
+    
+       f.write(m+'\n') #writing the dnsnames to file
+    f.close()
+def strt_sqs(nm,i,k): #function to create queue
+     c= boto.sqs.connect_to_region('us-west-2',aws_access_key_id=i,aws_secret_access_key=k)
+     q = c.create_queue(nm)
+     print (c.get_all_queues())
+
+def strt_db(nmd,i,k): #function to create queue
+     c=boto.dynamodb.connect_to_region('us-west-2',aws_access_key_id=i,aws_secret_access_key=k) 
+     schma=c.create_schema(hash_key_name='id',hash_key_proto_value=str) 
+     table = c.create_table(name=nmd,schema=schma,read_units=25,write_units=25)
+n=int(sys.argv[1]) #inputs the number of instances
+k_id='AKIAIJ5DFTHQDIMRH7HA'
+key='SPxiQ0LCQJQBVxHm8PtSA5zHwGqqklSyGA89WqSu'
+
+strt_ec2(n,k_id,key)
+nm=sys.argv[2] #inputs the name of instruction queue
+strt_sqs(nm,k_id,key)
+nm=sys.argv[3] #inputs the name of response queue
+strt_sqs(nm,k_id,key)
+nmd=sys.argv[4] #inputs the name of db
+strt_db(nmd,k_id,key)
+
+import boto.ec2
+import boto.sqs
+
+def trm_ec2(i,k):
+    c= boto.ec2.connect_to_region('us-west-2',aws_access_key_id=i,aws_secret_access_key=k)
+    r = c.get_all_reservations() 
+    #fetches all the running instances
+    lis=[]
+    for m in r:
+        lis.append(m.instances[0].id)
+    print(c.terminate_instances(instance_ids=lis))
+    #terminates all running instances
+    c= boto.sqs.connect_to_region('us-west-2',aws_access_key_id=i,aws_secret_access_key=k)
+    lis=c.get_all_queues() #getting list of running queues
+    for m in lis:
+       m.delete()#closinng all the queues
+       
+
+
+k_id='AKIAIJ5DFTHQDIMRH7HA'
+key='SPxiQ0LCQJQBVxHm8PtSA5zHwGqqklSyGA89WqSu'
+print(trm_ec2(k_id,key))
+
+
+import os
+import boto.dynamodb
+import time
+import sys
+from boto.sqs.message import Message
+qnm=sys.argv[1]   #inputs the instruction queue name 
+tnm=sys.argv[2]   #inputs the dynamodb name
+qnm1=sys.argv[3]  #inputs the response queue name
+k_id='AKIAIJ5DFTHQDIMRH7HA'
+key='SPxiQ0LCQJQBVxHm8PtSA5zHwGqqklSyGA89WqSu'
+c= boto.sqs.connect_to_region('us-west-2',aws_access_key_id=k_id,aws_secret_access_key=key)
+q = c.create_queue(qnm)  #connection to the queue is established
+q1=c.create_queue(qnm1) #connection to the queue is established
+st=time.time()           #start time is noted
+m=q.get_messages(1)     #message is fetched
+c1=boto.boto.dynamodb.connect_to_region('us-west-2',aws_access_key_id=k_id,aws_secret_access_key=key)
+t=c1.get_table(tnm)     #connection to the db is established
+data={'value':'Done'}   #data is set
+while(len(m)!=0):       #checking whether the queue is empty
+
+   i=(m[0].get_body())
+   k=i.split()#the message is split to extract id
+   #print (i)
+   try:
+       t.get_item(hash_key=k[0])  #trying to fetch value from db
+   except boto.dynamodb.exceptions.DynamoDBKeyNotFoundError:
+       #print "New Item Found"
+       item = t.new_item(hash_key =k[0],attrs=data)
+       m1=Message()
+       m1.set_body(k[0]+" "+"T")
+       q1.write(m1) #data put to response queue
+       item.put()
+       q.delete_message(m[0])
+       #delete message from instruction queue
+       os.system(k[1]+' '+str(float(k[2])/1000)) 
+       #the instruction is executed
+
+   m=q.get_messages(1)
+en=time.time()
+print(en-st) # the time taken is displayed
+
+
+cat worker | \
+while read CMD; do
+    scp -i pa3.pem wrkr.py ubuntu@$CMD:~
+done	
+
+
+

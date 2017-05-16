@@ -25,3 +25,12 @@ Collection of all the projects that I have worked on
 - Used AWS instances to sort 10 GB using External Sorting, Hadoop and Spark
 - Built Clusters using AWS instances to sort 100 GB of data using Hadoop and Spark
 - Compared the speed of External sorting, Hadoop and Spark
+
+### 4)CloudKon
+(AWS, SQS, DynamoDB, python)
+- Implemented cloudKon architecture to create a 16 node distributed task execution system 
+http://www.cs.iit.edu/~iraicu/teaching/CS554-F13/lecture03_CloudKon-overview.pdf
+- Used this architecture to create a system that can combine pictures into a video
+- Conducted experiments to verify the scalability of cloudKon Distributed system
+
+
