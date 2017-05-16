@@ -4,7 +4,7 @@ Collection of all the projects that I have worked on
 
 
 
-##### 1)Mood Meter
+### 1) Mood Meter
 
 (Python,Logistic Regression, SVM classifier
 
