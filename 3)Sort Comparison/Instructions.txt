@@ -1,0 +1,32 @@
+-shared memory
+After starting a c3 instance
+move the following files to the instance
+main.java
+external.java
+auto.sh
+configuration.sh
+give chmod 777 to configuration and run the file
+it updates the instance,installs java ,creates mount points and moves the programs to the mount poin /mnt
+then go to mount point /mnt and give permission chmod 777 to auto.sh
+then run auto.sh it will automaticaly generate the input.. excecute the programs and valsort the output
+
+-hadoop
+hadoop is downloaded to the instance and then the given configuration files are put into the folder hadoop/etc/hadoop
+then these files are opened and the ip of the master is updated
+ssh is set up
+bashrc is updated
+and image of the master is taken
+using this image 16 nodes are made and then the slaves file of all 17 nodes is updated with the ips of the new slaves
+the given program srt is converted to jar using the commands
+$ bin/hadoop com.sun.tools.javac.Main srt.java
+$ jar cf srt.jar srt*.class
+then the program can be excecuted by going to the bin folder and running ./hadoop jar srt.jar srt <input> <output>
+
+
+-spark
+spark has to be setup on a 17 node system using the apache spark ec2 script
+after this the replication has to be set as 1 in hadoop hdfs-site.xml 
+after this the hdfs-site.xml file is copied to all the slaves using copy_dir script in spark_ec2
+after this the program sprk.py has to be updated with the input and output file
+after this the py file can be excecuted using pyspark in spark bin
+
