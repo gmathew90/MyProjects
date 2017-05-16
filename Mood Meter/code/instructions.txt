@@ -1,0 +1,9 @@
+-The folder data contains the tweets used to train the classifier
+-The folder data_week contains the 700,000 tweets collected during the thanks giving week
+-Data_clctr is the python code that was used to collect data
+-label.txt contains the labels of the moods
+-twitter.cfg contains the consumer key,consumer secret,access token and access token secret used for collecting data from twitter
+-Project is the final python code that should be run to reproduce the results from the report.
+
+
+Make sure all the files and folders are in the same folder and then Project.ipynb can be run 
