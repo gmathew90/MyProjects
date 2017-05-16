@@ -1,4 +1,4 @@
-#MOOD METER
+# MOOD METER
 
 ### Introduction
 This project tries to construct a classifier that classifies tweets into happy and sad and thus predict the mood of a tweet. The major hypothesis is that the general mood of a region is reflected in the tweets made in that region. On basis of this hypothesis the general mood of a region can be guessed by analysing the moods of the tweets made in the region at any given point of time.
