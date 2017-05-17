@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductCatalog>
+    <item id="T1" retailer="Samsung">
+        <image>T1.jpg</image>
+        <name>Samsung GalaxyTabS</name>
+        <condition>New</condition>
+        <price>399</price>
+        <accessories>
+            <accessory>Roku</accessory>
+            <accessory>Turtle Beach Headset</accessory>
+        </accessories>
+    </item>
+   <item id="T2" retailer="Samsung">
+       <image>T2.jpg</image>
+        <name>SamsungTab2</name>
+        <condition>Refurbished</condition>
+        <price>700</price>
+    </item>
+</ProductCatalog>
+

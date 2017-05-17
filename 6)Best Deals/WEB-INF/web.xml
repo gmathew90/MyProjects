@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+
+  <display-name>Welcome to Tomcat</display-name>
+  <description>
+     Welcome to Tomcat
+  </description>
+<servlet>
+   <servlet-name>HelloWorld</servlet-name>
+   <servlet-class>HelloWorld</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Home</servlet-name>
+   <servlet-class>Home</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Login</servlet-name>
+   <servlet-class>Login</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Login1</servlet-name>
+   <servlet-class>Login1</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>SmartPhones</servlet-name>
+   <servlet-class>SmartPhones</servlet-class>
+</servlet>
+
+<servlet>
+   <servlet-name>Signup</servlet-name>
+   <servlet-class>Signup</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Signup1</servlet-name>
+   <servlet-class>Signup1</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>TV</servlet-name>
+   <servlet-class>TV</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Tablets</servlet-name>
+   <servlet-class>Tablets</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Laptops</servlet-name>
+   <servlet-class>Laptops</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Update1</servlet-name>
+   <servlet-class>Update1</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Update</servlet-name>
+   <servlet-class>Update</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Cart</servlet-name>
+   <servlet-class>Cart</servlet-class>
+</servlet>
+
+<servlet>
+   <servlet-name>Checkout</servlet-name>
+   <servlet-class>Checkout</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Orders</servlet-name>
+   <servlet-class>Orders</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>OrderHistory</servlet-name>
+   <servlet-class>OrderHistory</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Delete</servlet-name>
+   <servlet-class>Delete</servlet-class>
+</servlet>
+
+<servlet>
+   <servlet-name>CustUpdate1</servlet-name>
+   <servlet-class>CustUpdate1</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>CustDelete</servlet-name>
+   <servlet-class>CustDelete</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>testS</servlet-name>
+   <servlet-class>testS</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>CartUpdate</servlet-name>
+   <servlet-class>CartUpdate</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>CartDelete</servlet-name>
+   <servlet-class>CartDelete</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>OrderDelete</servlet-name>
+   <servlet-class>OrderDelete</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>ReviewUpdate</servlet-name>
+   <servlet-class>ReviewUpdate</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>ReviewUpdate1</servlet-name>
+   <servlet-class>ReviewUpdate1</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>ReviewSee</servlet-name>
+   <servlet-class>ReviewSee</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Trending</servlet-name>
+   <servlet-class>Trending</servlet-class>
+</servlet>
+
+<servlet>
+   <servlet-name>DataAnalytics</servlet-name>
+   <servlet-class>DataAnalytics</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>DataAnalytics1</servlet-name>
+   <servlet-class>DataAnalytics1</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>start</servlet-name>
+   <servlet-class>start</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>autocomplete</servlet-name>
+   <servlet-class>autocomplete</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>Product_Display</servlet-name>
+   <servlet-class>Product_Display</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>OrderUpdate</servlet-name>
+   <servlet-class>OrderUpdate</servlet-class>
+</servlet>
+<servlet>
+   <servlet-name>ProdDelete</servlet-name>
+   <servlet-class>ProdDelete</servlet-class>
+</servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<servlet-mapping>
+   <servlet-name>HelloWorld</servlet-name>
+   <url-pattern>/HelloWorld</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+   <servlet-name>Home</servlet-name>
+   <url-pattern>/Home</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+   <servlet-name>Login</servlet-name>
+   <url-pattern>/Login</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+   <servlet-name>Login1</servlet-name>
+   <url-pattern>/Login1</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+   <servlet-name>Signup</servlet-name>
+   <url-pattern>/Signup</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+   <servlet-name>Signup1</servlet-name>
+   <url-pattern>/Signup1</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+   <servlet-name>SmartPhones</servlet-name>
+   <url-pattern>/SmartPhones</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>TV</servlet-name>
+   <url-pattern>/TV</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>Tablets</servlet-name>
+   <url-pattern>/Tablets</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>Laptops</servlet-name>
+   <url-pattern>/Laptops</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>Update</servlet-name>
+   <url-pattern>/Update</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>Update1</servlet-name>
+   <url-pattern>/Update1</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>Cart</servlet-name>
+   <url-pattern>/Cart</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>Checkout</servlet-name>
+   <url-pattern>/Checkout</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>Orders</servlet-name>
+   <url-pattern>/Orders</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>OrderHistory</servlet-name>
+   <url-pattern>/OrderHistory</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>Delete</servlet-name>
+   <url-pattern>/Delete</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+<servlet-name>CustUpdate1</servlet-name>
+   <url-pattern>/CustUpdate1</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>CustDelete</servlet-name>
+   <url-pattern>/CustDelete</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>testS</servlet-name>
+   <url-pattern>/testS</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>CartUpdate</servlet-name>
+   <url-pattern>/CartUpdate</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>CartDelete</servlet-name>
+   <url-pattern>/CartDelete</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>OrderDelete</servlet-name>
+   <url-pattern>/OrderDelete</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>ReviewUpdate</servlet-name>
+   <url-pattern>/ReviewUpdate</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>ReviewUpdate1</servlet-name>
+   <url-pattern>/ReviewUpdate1</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>ReviewSee</servlet-name>
+   <url-pattern>/ReviewSee</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>Trending</servlet-name>
+   <url-pattern>/Trending</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>DataAnalytics</servlet-name>
+   <url-pattern>/DataAnalytics</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>DataAnalytics1</servlet-name>
+   <url-pattern>/DataAnalytics1</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>start</servlet-name>
+   <url-pattern>/start</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>autocomplete</servlet-name>
+   <url-pattern>/autocomplete</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>Product_Display</servlet-name>
+   <url-pattern>/Product_Display</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>OrderUpdate</servlet-name>
+   <url-pattern>/OrderUpdate</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>ProdDelete</servlet-name>
+   <url-pattern>/ProdDelete</url-pattern>
+</servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<welcome-file-list>
+   <welcome-file>start</welcome-file>
+  </welcome-file-list>
+</web-app>

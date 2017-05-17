@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductCatalog>
+    <item id="L1" retailer="Alienware">
+        <image>L1.jpg</image>
+        <name>Alienware13r</name>
+        <condition>New</condition>
+        <price>999</price>
+        <accessories>
+            <accessory>Roku</accessory>
+            <accessory>Turtle Beach Headset</accessory>
+        </accessories>
+    </item>
+    <item id="L2" retailer="Apple">
+        <image>L2.jpg</image>
+        <name>MacBook Air 13.3</name>
+        <condition>New</condition>
+        <price>999</price>
+     </item>
+
+   </ProductCatalog>
+

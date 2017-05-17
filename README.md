@@ -40,4 +40,10 @@ http://www.cs.iit.edu/~iraicu/teaching/CS554-F13/lecture03_CloudKon-overview.pdf
 - Implemented a game that lets players play webcam tic tac toe using webcam and an LED light bulb
 https://www.youtube.com/watch?v=KivN-U6E4BI
 
+### 6) Best Deals Web site
+(Java, JSP, Servlets, MySQL, MongoDB, Ajax, Apache Tomcat, HTML, CSS, Javascript) 
+- Developed a Web app that can be used to buy electronic devices.
+- Implemented the Front end using Servlets and JSPs and Back end using Mysql
+- Implemented Reviews and Data Analytics using MongoDB and MySQL
+
 

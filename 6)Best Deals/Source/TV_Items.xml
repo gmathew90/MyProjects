@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductCatalog>
+    <item id="V1" retailer="Samsung">
+        <image>V1.jpg</image>
+        <name>Samsung50</name>
+        <condition>New</condition>
+        <price>799</price>
+        <accessories>
+            <accessory>Roku</accessory>
+            <accessory>Turtle Beach Headset</accessory>
+        </accessories>
+    </item>
+	<item id="V2" retailer="Westinghouse">
+        <image>V2.jpg</image>
+        <name>Westinghouse 50</name>
+        <condition>New</condition>
+        <price>1200</price>
+        
+    </item>
+
+   </ProductCatalog>
+
