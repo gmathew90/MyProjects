@@ -49,5 +49,5 @@ https://www.youtube.com/watch?v=KivN-U6E4BI
 ### 7)Yelp Data Analysis
 (Python, Logistic Regression, SVM classifier, POS tagging, Natural Language Processing, Machine Learning)
 - Analysed Yelp Data to find the reasons behind bad reviews for a restaurant
-- Built a Logistic Regression Parts of Speach tagger to find the subjects and reasons in reviews
+- Built a Logistic Regression classifier to identify Parts of Speach tags, to find the subjects and reasons in reviews
 - Computed the degree of worsness of restaurants for different subjects
