@@ -26,11 +26,18 @@ Collection of all the projects that I have worked on
 - Built Clusters using AWS instances to sort 100 GB of data using Hadoop and Spark
 - Compared the speed of External sorting, Hadoop and Spark
 
-### 4)CloudKon
+### 4) CloudKon
 (AWS, SQS, DynamoDB, python)
 - Implemented cloudKon architecture to create a 16 node distributed task execution system 
 http://www.cs.iit.edu/~iraicu/teaching/CS554-F13/lecture03_CloudKon-overview.pdf
 - Used this architecture to create a system that can combine pictures into a video
 - Conducted experiments to verify the scalability of cloudKon Distributed system
+
+### 5) Web-Cam Tic Tac Toe
+(python, Open Cv)
+- Developed a program that lets 2 users play the classic game of tic tac toe
+- Developed an interface that can take inputs from webcam using an LED Light
+- Implemented a game that lets players play webcam tic tac toe using webcam and an LED light bulb
+https://www.youtube.com/watch?v=KivN-U6E4BI
 
 
